@@ -25,6 +25,7 @@ export const botConfig = {
       {
         name: "Custom Status", // required by Discord API, not shown in the client
         state: "Under Development",     // this is what people actually see
+        state: "Made by Ifuube",     // this is what people actually see
         type: 4,               // Custom
       },
     ],
