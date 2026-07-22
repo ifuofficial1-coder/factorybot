@@ -101,7 +101,7 @@ export async function createInitialHelpMenu(client) {
             },
             {
                 name: '\u200B',
-                value: `-# ${botName}`,
+                value: `-# ${botName} Made by Ifuube`,
                 inline: false,
             },
         ],
