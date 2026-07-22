@@ -21,16 +21,44 @@ export const botConfig = {
     // 3 = Watching
     // 4 = Custom
     // 5 = Competing
+const statuses = [
+  "Under Development",
+  "Made by Ifuube",
+];
+
+let statusIndex = 0;
+
+client.on("ready", () => {
+  console.log(`${client.user.tag} is online!`);
+
+  // Status pertama
+  client.user.setPresence({
     activities: [
       {
-        name: "Custom Status", // required by Discord API, not shown in the client
-        state: "Under Development",     // this is what people actually see
-        state: "Made by Ifuube",     // this is what people actually see
-        type: 4,               // Custom
+        name: "Custom Status",
+        state: statuses[statusIndex],
+        type: 4,
       },
     ],
-  },
+    status: "online",
+  });
 
+  // Ganti status setiap 5 detik
+  setInterval(() => {
+    statusIndex = (statusIndex + 1) % statuses.length;
+
+    client.user.setPresence({
+      activities: [
+        {
+          name: "Custom Status",
+          state: statuses[statusIndex],
+          type: 4,
+        },
+      ],
+      status: "online",
+    });
+  }, 5000);
+});
   // =========================
   // COMMAND BEHAVIOR
   // =========================
